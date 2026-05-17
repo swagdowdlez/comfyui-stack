@@ -56,6 +56,10 @@ RUN git clone https://github.com/ClownsharkBatwing/RES4LYF.git \
     && git checkout 1c9bf61792ba585ad2460c998f62ae75f7ca982b \
     && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
 
+RUN git clone https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch.git \
+    && cd ComfyUI-Inpaint-CropAndStitch \
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+
 WORKDIR /workspace/ComfyUI
 RUN /workspace/comfy-env/bin/python custom_nodes/ComfyUI-Manager/cm-cli.py install \
     comfyui-itools@0.6.5 \
