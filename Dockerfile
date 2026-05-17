@@ -74,4 +74,14 @@ RUN for d in /workspace/ComfyUI/custom_nodes/*/; do \
         fi; \
     done
 
-RUN /workspace/comfy-env/bin/hugg
+RUN /workspace/comfy-env/bin/huggingface-cli login --token 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 --add-to-git-credential
+
+RUN mkdir -p /workspace/ComfyUI/user /workspace/ComfyUI/output /workspace/ComfyUI/input
+
+COPY start.sh /workspace/start.sh
+RUN chmod +x /workspace/start.sh
+
+EXPOSE 3001
+
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["/workspace/start.sh"]
