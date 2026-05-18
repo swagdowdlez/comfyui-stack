@@ -80,6 +80,8 @@ RUN for d in /workspace/ComfyUI/custom_nodes/*/; do \
 
 RUN mkdir -p /workspace/ComfyUI/user /workspace/ComfyUI/output /workspace/ComfyUI/input
 
+RUN /workspace/comfy-env/bin/jupyter labextension disable --level=system "@jupyterlab/apputils-extension:announcements"
+
 COPY start.sh /workspace/start.sh
 RUN chmod +x /workspace/start.sh
 
