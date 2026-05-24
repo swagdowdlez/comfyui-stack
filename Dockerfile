@@ -60,6 +60,10 @@ RUN git clone https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch.git \
     && cd ComfyUI-Inpaint-CropAndStitch \
     && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
 
+RUN git clone https://github.com/CarlMarkswx/comfyui_GaussianViewer.git \
+    && cd comfyui_GaussianViewer \
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+
 WORKDIR /workspace/ComfyUI
 RUN /workspace/comfy-env/bin/python custom_nodes/ComfyUI-Manager/cm-cli.py install \
     comfyui-itools@0.6.5 \
