@@ -64,6 +64,11 @@ RUN git clone https://github.com/CarlMarkswx/comfyui_GaussianViewer.git \
     && cd comfyui_GaussianViewer \
     && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
 
+RUN git clone https://github.com/PozzettiAndrea/ComfyUI-Sharp.git \
+    && cd ComfyUI-Sharp \
+    && /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt --upgrade \
+    && /workspace/comfy-env/bin/python install.py
+
 WORKDIR /workspace/ComfyUI
 RUN /workspace/comfy-env/bin/python custom_nodes/ComfyUI-Manager/cm-cli.py install \
     comfyui-itools@0.6.5 \
