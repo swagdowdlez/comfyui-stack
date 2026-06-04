@@ -77,6 +77,18 @@ RUN git clone https://github.com/scraed/LanPaint.git \
     && cd LanPaint \
     && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
 
+RUN git clone https://github.com/cubiq/ComfyUI_essentials.git \
+    && cd ComfyUI_essentials \
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+
+RUN git clone https://github.com/JPS-GER/ComfyUI_JPS-Nodes.git \
+    && cd ComfyUI_JPS-Nodes \
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+
+RUN git clone https://github.com/kohya-ss/ComfyUI-Anima-LLLite.git \
+    && cd ComfyUI-Anima-LLLite \
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+
 WORKDIR /workspace/ComfyUI
 RUN /workspace/comfy-env/bin/python custom_nodes/ComfyUI-Manager/cm-cli.py install \
     comfyui-itools@0.6.5 \
