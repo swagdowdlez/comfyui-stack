@@ -73,6 +73,10 @@ RUN git clone https://github.com/Mirumo0u0/ComfyUI-Cosmos-Reference.git \
     && cd ComfyUI-Cosmos-Reference \
     && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
 
+RUN git clone https://github.com/scraed/LanPaint.git \
+    && cd LanPaint \
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+
 WORKDIR /workspace/ComfyUI
 RUN /workspace/comfy-env/bin/python custom_nodes/ComfyUI-Manager/cm-cli.py install \
     comfyui-itools@0.6.5 \
