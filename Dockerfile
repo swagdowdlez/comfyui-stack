@@ -22,9 +22,8 @@ RUN /workspace/comfy-env/bin/python -m uv pip install \
     torch==2.11.0+cu128 torchvision==0.26.0+cu128 torchaudio==2.11.0+cu128 \
     --index-url https://download.pytorch.org/whl/cu128
 
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git \
-    && cd ComfyUI \
-    && git checkout a5189fed515a96b71cf2b743fb93eaa3d42bc881
+ARG COMFY_BUILD=2026-06-11
+RUN git clone https://github.com/comfyanonymous/ComfyUI.git
 
 WORKDIR /workspace/ComfyUI
 RUN /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt \
@@ -106,6 +105,8 @@ RUN for d in /workspace/ComfyUI/custom_nodes/*/; do \
             /workspace/comfy-env/bin/python -m uv pip install -r "$d/requirements.txt" || true; \
         fi; \
     done
+
+RUN /workspace/comfy-env/bin/python -m uv pip install kornia==0.8.2    
 
 RUN mkdir -p /workspace/ComfyUI/user /workspace/ComfyUI/output /workspace/ComfyUI/input
 
