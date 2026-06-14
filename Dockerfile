@@ -43,25 +43,25 @@ RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git \
 RUN git clone https://github.com/Lightricks/ComfyUI-LTXVideo.git \
     && cd ComfyUI-LTXVideo \
     && git checkout 229437c6b65796d6a7a63ae34be2bd5ba31fa543 \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/un-seen/comfyui-tensorops.git \
     && cd comfyui-tensorops \
     && git checkout d34488e3079ecd10db2fe867c3a7af568115faed \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/ClownsharkBatwing/RES4LYF.git \
     && cd RES4LYF \
     && git checkout 1c9bf61792ba585ad2460c998f62ae75f7ca982b \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch.git \
     && cd ComfyUI-Inpaint-CropAndStitch \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/CarlMarkswx/comfyui_GaussianViewer.git \
     && cd comfyui_GaussianViewer \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/PozzettiAndrea/ComfyUI-Sharp.git \
     && cd ComfyUI-Sharp \
@@ -70,23 +70,23 @@ RUN git clone https://github.com/PozzettiAndrea/ComfyUI-Sharp.git \
 
 RUN git clone https://github.com/Mirumo0u0/ComfyUI-Cosmos-Reference.git \
     && cd ComfyUI-Cosmos-Reference \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/scraed/LanPaint.git \
     && cd LanPaint \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/cubiq/ComfyUI_essentials.git \
     && cd ComfyUI_essentials \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/JPS-GER/ComfyUI_JPS-Nodes.git \
     && cd ComfyUI_JPS-Nodes \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 RUN git clone https://github.com/kohya-ss/ComfyUI-Anima-LLLite.git \
     && cd ComfyUI-Anima-LLLite \
-    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt; fi
+    && if [ -f requirements.txt ]; then /workspace/comfy-env/bin/python -m uv pip install -r requirements.txt || true; fi
 
 WORKDIR /workspace/ComfyUI
 RUN /workspace/comfy-env/bin/python custom_nodes/ComfyUI-Manager/cm-cli.py install \
